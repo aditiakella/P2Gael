@@ -75,38 +75,68 @@
 {% block content %}
 
 <!-- Links to code for Front End and Backend for this lesson;  Also, link to Login example  -->
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+body {font-family: Oswald, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
 
-<div class="jumbotron jumbotron-fluid" style="height: 50%; ">
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
 
-    <div class="row justify-content-center">
-        <div class="col-10" style="text-align: center;">
-            <h1>Add your contact info!</h1>
-        </div>
-    </div>
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
 
-    <div class="row courses-buttons justify-content-center">
-        <!-- onsubmit ="return verifyPassword()" -->
-        <form method="POST" ID="create" action={{url_for('.create')}} >
-            <table>
-                <tr>
-                    <th><label for="username">Name</label></th>
-                    <th><label for="password">Password</label></th>
-                    <th><label for="email">Email</label></th>
-                    <th><label for="phone_number">Phone Number</label></th>
-                </tr>
-                <tr>
-                    <td><input type="text" name="username" id="username" required></td>
-                    <td><input type="password" name="password" id="password" required></td>
-                    <td><input type="email" name="email" id="email" placeholder="abc@xyz.org" required></td>
-                    <td><input required type="tel" name="phone_number" id="phone_number" pattern="[0-9]{10}" placeholder="1234567890"></td>
-                    <td><input type="submit" value="Add"></td>
-                </tr>
-            </table>
-            <p id="pswError"></p>
-        </form>
+input[type=submit]:hover {
+  background-color: #45a049;
+}
 
-    </div>
+.container {
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 20px;
+}
+</style>
+</head>
+<body>
+
+<h3>Contact Form</h3>
+
+<div class="container">
+    <form method="POST" ID="create" action={{url_for('.create')}} >
+        <label for="username">Name</label>
+        <input type="text" name="username" id="username" required>
+
+        <label for="password">Password</label>
+        <input type="text" name="password" id="password" required>
+
+        <label for="email">Email</label>
+        <td><input type="text" name="email" id="email" placeholder="abc@xyz.org" required></td>
+
+        <label for="phone_number">Phone Number</label>
+        <input required type="text" name="phone_number" id="phone_number" pattern="[0-9]{10}" placeholder="1234567890">
+
+        <input type="submit" value="Add">
+
+        <p id="pswError"></p>
+    </form>
 </div>
+
+</body>
 <!-- Sample table rendering and filtering link -->
 <div class="jumbotron jumbotron-fluid" style="height: 50%; ">
 
