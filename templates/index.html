@@ -150,6 +150,7 @@ input[type=submit]:hover {
     <!-- backend filtering actions -->
     <div class="row courses-buttons justify-content-center">
         <table id="links">
+          <!-- Links to different kinds of tables. There are links to the full table, emails only, and phones only -->
             <tr>
                 <td><a href={{url_for('.databases')}}>Full Table </a></td>
                 <td><a href={{url_for('.emails')}}>E-Mails only</a></td>
@@ -175,6 +176,7 @@ input[type=submit]:hover {
         -->
         {% set pn = "" ~ row['phone_numbers'] %}
         {% set pnf = "(" ~ pn[0:3] ~ ")" ~ pn[3:6] ~ "-" ~ pn[6:10] %}
+          <!-- This is where each aspect of the database is being called -->
         <tr>
             <td>{{ row['id'] }}</td>
             <td>{{ row['name'] }}</td>
