@@ -89,17 +89,22 @@ def Phylogenetic():
 
 @app.route('/twitter', methods=['GET'])
 def twitter():
-    url = "https://twitter32.p.rapidapi.com/getTweetIdByUrl"
+    url = "https://peerreach.p.rapidapi.com/user/lookup.json"
 
-    querystring = {"url":"https://twitter.com/Nike/status/1319639821451554818"}
+    querystring = {"screen_name":"audubonsociety"}
 
     headers = {
     'x-rapidapi-key': "0fe3a85372mshec4ebae6a3667a4p169becjsn644301488221",
-    'x-rapidapi-host': "twitter32.p.rapidapi.com"}
+    'x-rapidapi-host': "peerreach.p.rapidapi.com"
+    }
 
     response = requests.request("GET", url, headers=headers, params=querystring)
-    return render_template('tweet.html', response=response)
+    name = response.json().get('screen_name')
+    lastupdate = response.json().get('lastupdate')
+    profiles = response.json().get('profiles')
+    followers = response.json().get('followers')
     print(response.text)
+    return render_template('tweet.html', response=response, name=name, profiles=profiles, lastupdate=lastupdate, followers=followers)
 
 @app.route('/easteregg')
 def Easter():

@@ -7,10 +7,17 @@
     <title>Twitter Page</title>
 </head>
 <body>
-<h1>Twitter Search API</h1>
+<h1>Audubon Society Twitter API</h1>
+<h4>Twitter Handle:</h4>
+<p class="name">{{name}}</p>
+<h4>Categories:</h4>
+<p class="profiles">{{profiles}}</p>
+<h4>Last Update:</h4>
+<p class="lastupdate">{{lastupdate}}</p>
+<h4>Current Followers:</h4>
+<p class="followers">{{followers}}</p>
 <p class="response">{{response}}</p>
 <form method="POST" ID="myForm" action={{url_for('.twitter')}} >
-    <input type="submit" value="New Tweet">
 </form>
 </body>
 </html>
